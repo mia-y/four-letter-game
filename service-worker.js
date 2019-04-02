@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/four-letter-game/precache-manifest.510256fd61266aa6a52f463e5cf62fdf.js"
+  "/four-letter-game/precache-manifest.09fef36970ea7600efca8fbca0fd8365.js"
 );
 
 workbox.clientsClaim();
