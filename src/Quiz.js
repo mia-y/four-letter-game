@@ -5,10 +5,7 @@ class Quiz extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            hidden: true,
-            content: props.content,
-            quiz: props.content.split(' ')[0],
-            answer: props.content.split(' ')[1]
+            hidden: true
         };
     }
 
@@ -17,21 +14,21 @@ class Quiz extends React.Component {
     }
 
     render() {
-        const blank = this.state.hidden == true ? <a onClick={this.onQuestionMarkClick}>??</a> : this.state.answer;
+        const quiz = this.props.content.split(' ')[0];
+        const answer = this.props.content.split(' ')[1];
+        const blank = this.state.hidden == true ? <a onClick={this.onQuestionMarkClick}>??</a> : answer;
         return (
-            <div>
-                {this.state.quiz}
-                &nbsp;
-                {blank}
-            </div>
+                <h1 className="cover-heading">
+                    {quiz}
+                    &nbsp;
+                    {blank}
+                </h1>
         );
     }
+    
+    componentWillReceiveProps(props) {
+        this.setState({hidden: props.hidden});
+    }   
 }
-
-Quiz.defaultProps = {
-    quiz : '',
-    answer : '',
-    content : "엑스 박스",
-};
 
 export default Quiz;
